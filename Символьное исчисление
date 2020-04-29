@@ -1,0 +1,54 @@
+syms x y n;
+
+f1_1 = x^5 + 4*x^4 - 2*x^3 - 14*x^2 - 3*x - 18;
+answ1_1 = factor(f1_1);
+f1_2 = x^3+x^2*y+x^2-2*x*y^2+x*y-2*y^2;
+answ1_2 = factor(f1_2);
+
+f2_1 = x*exp(-x);
+answ2_1 = limit(f2_1,x,+Inf);
+f2_2 = tan(x)^tan(2*x);
+answ2_2 = limit(f2_2,x,pi/4);
+f2_3 = atan(1/(1-x));
+answ2_3 = limit(f2_3,x,1,'right');
+
+f3_1 = atan(x)/2 - x/(2*(1+x^2)^2);
+answ3_1 = simplify(diff(f3_1));
+f3_2 = 3*x^4 - 14*x^3 + 12*x^2 + 24*x + 6;
+answ3_2 = simplify(diff(f3_2));
+f3_3 = (sin(3*x)-cos(3*x))^2;
+answ3_3 = simplify(diff(f3_3));
+
+f4_1 = sqrt(1-x^2)/x^2;
+answ4_1 = int(f4_1);
+f4_2 = 1/sin(x)^3;
+answ4_2 = int(f4_2);
+f4_3 = (sin(2*x)+1)^(1/7)*cos(2*x);
+answ4_3 = int(f4_3);
+
+f5_1 = 1/x^2;
+answ5_1 = symsum(f5_1,1,Inf);
+f5_3 = x^n;
+answ5_3 = symsum(f5_3,n,0,Inf);
+f5_2 = (-1)^((n^2+n)/2)*n/2^n;
+answ5_2 = symsum(f5_2,n,1,Inf);
+
+f6_1 = exp(x);
+answ6_1 = taylor(f6_1);
+f6_3 = sin(x)^2;
+answ6_3 = taylor(f6_3,'Order',10);
+
+f7 = exp(1/(1-x^2))/(1+x^2);
+minMax = solve(diff(f7));
+ezplot(f7,-7,7);
+hold on;
+x1 = (-7:1:7);
+y1 = zeros(1,15)
+y2 = [-20,0,20];
+x2 = [-1,-1,-1] ;
+y3 = [-20,0,20];
+x3 = [1,1,1];
+plot(x1,y1,'b');
+plot(x2,y2,'b');
+plot(x3,y3,'b');
+hold off;
